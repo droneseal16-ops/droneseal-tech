@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>915g 기체가 현장의 첫 지도를 그리는 법 — 작다고 정확도를 포기하지 않는 설계 — DRONE SEAL 기술 브리핑 아카이브</title>
+<style>
+:root{--green:#2D7A4F;--green-dark:#1E5C38;--pale:#E7F4ED;--ink:#222;--muted:#5a6b60;--line:#dce8df}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,'Segoe UI','Noto Sans KR',sans-serif;color:var(--ink);line-height:1.75;background:#fff}
+header{background:var(--green);color:#fff;padding:2.2rem 1.2rem 1.6rem}
+.wrap{max-width:860px;margin:0 auto;padding:0 1.2rem}
+header h1{margin:0;font-size:1.7rem;letter-spacing:.02em}
+header p{margin:.5rem 0 0;opacity:.92}
+nav{margin-top:1rem}
+nav a{color:#fff;opacity:.9;margin-right:1.1rem;text-decoration:none;font-size:.95rem}
+nav a:hover{opacity:1;text-decoration:underline}
+main{padding:2rem 0 3rem}
+h2{color:var(--green-dark);border-bottom:2px solid var(--green);padding-bottom:.35rem;margin-top:2.4rem}
+h3{color:var(--green-dark);margin-top:1.8rem}
+a{color:var(--green-dark)}
+.meta{color:var(--muted);font-size:.9rem}
+.card{border:1px solid var(--line);border-radius:10px;padding:1rem 1.2rem;margin:.8rem 0;background:#fbfdfc}
+.card h3{margin:.1rem 0 .3rem}
+.card h3 a{text-decoration:none}
+.card h3 a:hover{text-decoration:underline}
+.card p{margin:.2rem 0}
+.badge{display:inline-block;background:var(--pale);color:var(--green-dark);border-radius:999px;padding:.05rem .6rem;font-size:.8rem;margin-right:.4rem}
+.full{font-size:.9rem}
+footer{border-top:1px solid var(--line);padding:1.6rem 0 2.4rem;color:var(--muted);font-size:.92rem}
+footer a{color:var(--green-dark)}
+blockquote{border-left:3px solid var(--green);margin:1rem 0;padding:.4rem 1rem;background:var(--pale)}
+ul{padding-left:1.3rem}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<h1>DRONE SEAL · 무인항공AI 교육센터</h1>
+<p>DJI·XAG 기술 브리핑 아카이브</p>
+<nav><a href="../index.html">← 아카이브 목록</a> <a href="../index.html#portfolio">회사 소개</a></nav>
+</div></header>
+<main><div class="wrap">
+<p class="meta">2026-11-05 · DJI 기술 브리핑</p>
+<h1>DJI 기술 일일 브리핑 — 2026-11-05 (목) 저녁 회차</h1>
+<h2>915g 기체가 현장의 첫 지도를 그리는 법 — 작다고 정확도를 포기하지 않는 설계</h2>
+<p>태양광 설치 전 지붕을 한 번 훑어야 하는 날, 현장에 도착한 팀이 가방에서 꺼내는 기체는 915g짜리 소형기이다. 큰 기체를 부르기 전에, 이 작은 기체로 현장을 한 번 찍어 정사와 3D 초안을 만든다. 왜 이 작은 기체가 &#x27;그냥 찍는 드론&#x27;이 아니라 &#x27;지도의 출발점&#x27;이 될 수 있는가.</p>
+<p>답은 크기가 아니라 정확도의 전제를 하드웨어로 갖고 있느냐에 있다. 오늘의 주장은 이것이다. Mavic 3 Enterprise(3E)의 가치는 &#x27;작아서&#x27;가 아니라 &#x27;작은데도 매핑의 정확도 전제를 갖고 있다&#x27;는 데 있다. 기계식 셔터가 사진의 왜곡을 줄이고, 탈착식 RTK가 사진마다 cm급 위치를 붙이고, Smart Oblique와 지형 추종이 그 사진을 필요한 각도와 일정한 해상도로 모을 때, 915g 기체가 현장의 첫 매핑 기체가 된다. 단, 그 전제는 FIX 확인·비행 속도·배터리 변형이라는 세 가지 운용 조건이 지켜질 때만 성립한다.</p>
+<p>이번 회차는 3E라는 &#x27;기체 자체&#x27;의 매핑 운용이다. 10월 23일 Zenmuse H30T 회차는 대형 기체용 열화상 &#x27;페이로드&#x27;였고, 11월 1일 DJI Terra 회차는 &#x27;처리 소프트웨어의 정확도&#x27;였다. 열화상 온도 측정이나 Terra의 처리 절차는 본론이 아니다. 형제 기종인 3T는 열화상 기종이며 광학 와이드 카메라에 기계식 셔터가 없고 Smart Oblique도 지원하지 않는다. 3T의 수치를 3E의 장점으로 쓰지 않는다.</p>
+<p><strong>왜 지금인가.</strong> 기체 탑재 축은 최근 2주 순환에서 10월 31일 XAG P150 Max 이후 5일 만이다. 직전 회차(11월 4일)가 XAG RealTerra 카메라 축이었고, 그 앞 11월 3일 Matrice 4 센싱, 11월 2일 FlightHub 2 Copilot, 11월 1일 Terra 정확도가 이어졌다. DJI·XAG 균형상으로도 이번은 DJI 차례이다. Mavic 3 Enterprise가 기술 브리핑의 본론이 된 적은 아직 없다.</p>
+<p>공식 수치는 오늘 기준으로 다시 확인했다. DJI Mavic 3 Enterprise 공식 스펙 페이지(2026-11-05 라이브 재확인)에 3E는 무게 915g(프로펠러 포함, 액세서리 제외), 최대 이륙 중량 1,050g, 최대 비행 시간 45분(무풍, 표준 지능형 비행 배터리 + Enterprise 프로펠러 기준), 최대 호버 시간 38분, 최대 비행 거리 32km, 최대 내풍 12m/s, 운용 온도 -10°~40°C로 표기돼 있다. 와이드 카메라는 4/3 CMOS 20MP(5280×3956), 환산 24mm, 조리개 f/2.8~f/11, 기계식 셔터 8~1/2000초, 전자식 셔터 8~1/8000초, JPEG 최소 촬영 간격 0.7초이다. 호버 정확도는 비전 수직 ±0.1m·수평 ±0.3m, GNSS 수직·수평 ±0.5m, RTK 수직·수평 ±0.1m로 계단식으로 다르다. 전송은 DJI O3 Enterprise, 조종기 라이브 뷰 1080p/30fps, 무장애·무간섭 최대 전송 거리 FCC 15km이다. 기체 펌웨어 최신판은 v17.01.05.08(2026-05-07)이며, 릴리즈 노트의 최신 항목은 &quot;Fixed some known issues&quot; 한 줄뿐이다. 최신 펌웨어에 기능 추가가 있었다고 쓰지 않는다.</p>
+<p><strong>핵심은 이렇게 돈다.</strong> 사슬은 네 고리이다. 기계식 셔터(사진의 왜곡을 줄인다) → RTK 모듈(사진마다 cm급 위치를 붙인다) → Pilot 2 면 경로(정사·경사·스마트 경사·지형 추종으로 사진을 모은다) → 후처리(정사·3D 모델)이다. 앞단 입력은 위성(GPS+Galileo+BeiDou+GLONASS, RTK 모듈 장착 시) + 보정 데이터(D-RTK 2 모바일 스테이션 또는 Custom Network RTK의 NTRIP 서버) + 기체 센서(전방향 쌍안 비전·하방 적외선·IMU)이다. 뒷단 활용은 사진 → 정사·3D 모델 후처리(DJI Terra 계열) → 점검·시설 관리·태양광 설치 전 3D 시각화로 이어진다. O3 Enterprise 전송 거리(15km)는 조종·확인 경로이지 매핑 정확도와 섞어 쓸 수치가 아니다.</p>
+<p>왜 셔터 방식이 정확도를 가르는가. 롤링 셔터 효과란 전자식 셔터가 사진 위쪽 줄부터 아래쪽 줄까지 시간차를 두고 읽는 현상이다. 기체가 그 시간 동안 이동하므로, 사진 속 물체의 위치가 실제와 어긋나고 모델이 비틀릴 수 있다. 기계식 셔터란 카메라 앞 셔터막이 한 번에 열리고 닫히며 빛을 받는 방식이다. 한 번에 노출하므로 그 왜곡을 하드웨어 쪽에서 줄인다. 비유하자면, 롤링 셔터는 줄줄이 읽어 내려가는 스캐너이고, 기계식 셔터는 한 번에 찍는 사진기이다. 3E의 와이드 카메라가 기계식 셔터(8~1/2000초)를 가진 이유가 여기에 있다. 텔레 카메라는 전자식 셔터만 있으므로, 매핑 사진은 와이드 카메라로 찍는다. 텔레는 점검용 줌(환산 162mm, 디지털 줌 8배·56배 하이브리드 줌)의 역할이다.</p>
+<p>이 설계 선택이 왜 정확도 문제인지는 제품 바깥의 독립 근거가 보여준다. 앵커 논문 Bruno와 Forlani(2023)는 DJI Air 2S(1인치 CMOS 20MP, 롤링 셔터 카메라)로 롤링 셔터 효과를 실험·시뮬레이션으로 측정한 연구이다. 전이 경계를 먼저 밝힌다. 이 논문은 Mavic 3 Enterprise 실험이 아니다. 따라서 이 논문은 &quot;3E가 이렇게 동작한다&quot;는 증거가 아니라, &quot;롤링 셔터 카메라로 매핑할 때 무슨 일이 벌어지고, 보정·GNSS가 어디까지 살리는가&quot;라는 설계 원리의 거울이다. 논문의 수치를 3E 스펙과 1:1 대응시키지 않는다.</p>
+<p>실험 설계는 이렇다. 비행 고도 55m·영상 50장·비행 속도 4m/s·GSD 1.9cm·중복도 80%/70%인 Site A와 고도 60m·영상 40장인 Site B에서, 4m/s와 8m/s 비행을 비교했다. GSD(지상 표본 거리)란 사진 한 화소가 땅에서 차지하는 크기이다. 처리 조건은 여섯 가지였다. A(GCP 전용·보정 없음·GNSS 미사용), B(GNSS 보조·보정 없음), C(GCP 전용·Metashape 선형 보정), D(GNSS 보조·Metashape 선형 보정), E(GCP 전용·Pix4Dmapper 구간 선형 보정), F(GNSS 보조·Pix4Dmapper 구간 선형 보정)이다. GCP(지상기준점)란 땅에 박고 측량한 위치 기준점이다.</p>
+<p>결과는 세 가지로 요약된다. 첫째, 재투영 오차(단위 픽셀)는 A 0.53, B 0.28, C 0.56, D 0.48, E 0.25, F 0.14였다. Pix4Dmapper 보정, 특히 GNSS 보조와 결합한 F에서 가장 작았다. 그런데 Metashape 선형 보정(C·D)이 보정 없음(A·B)보다 재투영 오차가 커졌다. &quot;보정을 켰다고 무조건 좋아지는 것이 아니다&quot;는 경계이다. 보정 모델 선택 자체가 결과에 영향을 준다. 둘째, 롤링 셔터 보정은 수평 정확도를 크게 개선하고 최종 산출물의 변형을 줄였다. 대부분의 경우 수평 정확도 손실은 45% 미만이었으나 수직(고도)에서는 손실이 컸다. 비행 속도가 증가하면 오차도 증가했고, 수직 정확도는 GNSS 정보를 함께 사용할 때, 특히 속도가 높을 때 개선됐다. 시뮬레이션(Table 8, 체크포인트 RMSE, cm, X/Y/Z)에서도 GNSS 보조가 수직 RMSE를 2.5cm → 1.9cm(보정 없음), 2.2cm → 1.2cm(Metashape 보정)으로 낮췄다. 셋째, 롤링 셔터 효과는 카메라 내부 모델에도 스며든다. 보정 여부와 비행 속도에 따라 내부 파라미터(b1) 추정값이 달라졌다. &quot;셔터 왜곡은 외부 위치만 틀어지게 한다&quot;는 단순한 이해를 깨는 대목이다. 3E가 기계식 셔터로 이 문제의 출발점 자체를 줄인 기체라는 대비가 여기서 선명해진다.</p>
+<p>왜 &#x27;RTK를 단다&#x27;는 말이 곧 &#x27;GCP가 필요 없다&#x27;는 말이 아닌가. RTK FIX란 기지국·네트워크에서 받은 보정 데이터를 이용해 위성 위치를 cm급으로 고정한 상태이다. 보정 없이 찍은 사진의 위치는 수십 cm 단위로 흔들려, 지도의 위치 전제가 깨지기 때문이다. 직접 지오레퍼런싱이란 GCP를 땅에 박고 측량하지 않고, 사진에 붙은 RTK 위치만으로 정사·모델의 위치를 맞추는 방식이다. 갯벌·급경사·넓은 현장에서는 GCP 방식 자체가 안 되기 때문에 이 방식이 필요하다. 그러나 &quot;GCP 없이도 된다&quot;는 말은 &quot;어느 조건에서, 어느 오차로&quot;라는 단서와 함께 써야 한다. 앵커 논문의 추가 시험에서 블록 중앙에 GCP 1점만 고정하자 RMSE가 수평 4cm 초과·고도 최대 7cm까지 증가했다. GCP를 줄이는 설계에서는 &quot;1점만으로 충분하다&quot;는 결론이 아니라, 오히려 오차가 커진다는 것이 결과이다.</p>
+<p>왜 경사 촬영은 &#x27;5번 도는 것&#x27;에서 &#x27;2번으로 줄이는 것&#x27;으로 바뀌었는가. Smart Oblique(스마트 경사 촬영)란 정사 1방향 + 경사 4방향의 5회 촬영을, 서로 직각인 S자 2회 비행으로 줄여 3D 재구성에 필요한 사진만 모으는 방식이다. 사진 수가 곧 후처리 시간·저장 용량이 되기 때문이다. 매뉴얼은 경사 수집이 5개 S자 경로로 정사 1방향 + 경사 4방향 사진을 모아 실감 3D 모델용으로 쓴다고 서술한다. Smart Oblique는 매핑 영역 가장자리에서는 재구성에 꼭 필요한 사진만 찍어 사진 수와 후처리 시간을 줄인다. 구간별 짐벌 틸트가 달라질 수 있고, 필요한 사진 수에 따라 비행 속도를 자동 조절한다. &quot;많이 찍는 것&quot;이 아니라 &quot;필요한 각도를 빠짐없이 찍는 것&quot;이 3D의 조건이다. Smart Oblique는 Mavic 3T/3T Advanced에서 미지원이다. 기종 확인이 먼저이다.</p>
+<p>왜 지형 추종은 &#x27;고도를 맞추는 기능&#x27;이 아니라 &#x27;GSD를 일정하게 유지하는 기능&#x27;인가. Terrain Follow(지형 추종)란 지형 높낮이에 따라 비행 고도를 조절해 땅으로부터의 상대 고도를 일정하게 유지하는 기능이다. 지형이 솟으면 상대 고도가 줄고 GSD가 작아지고, 지형이 꺼지면 그 반대가 된다. GSD가 들쭉날쭉하면 정사·모델의 해상도 전제가 깨지기 때문이다. 매뉴얼은 고도 모드에서 AGL(지상고)을 선택해 활성화하고, Real-Time Follow는 DSM 파일이 필요 없이 비행 중 비전 시스템이 전방 200m 지형을 실시간 감지한다고 서술한다. 경사 75° 미만·비전 시스템에 적합한 조도·환경 조건에서 사용을 권장한다. 매핑 중 AGL과 전방 150m 지형 추세는 카메라 뷰 우하단에 표시된다.</p>
+<p><strong>실패 모드 — 정확도 전제가 깨지는 다섯 지점.</strong> 첫째, 속도가 올라가면 롤링 셔터 효과가 커지고, 수직 오차는 보정만으로 잡히지 않는다. 앵커 논문은 비행 속도가 증가하면 오차가 증가했고, 수직에서는 손실이 컸으며, 수직 정확도는 GNSS 정보를 함께 사용할 때(특히 고속에서) 개선됐다고 밝힌다. 현장 번역은 이렇다. &quot;빨리 날아도 사진만 많으면 된다&quot;는 설계는 틀렸다. 3E는 기계식 셔터로 왜곡의 출발점을 줄이지만, 수직 정확도의 전제는 여전히 RTK·GNSS 쪽에 있다. 고속 매핑에서는 RTK FIX와 GNSS 보조를 전제로 깔고, 속도를 올리는 대신 중복도·GSD를 먼저 확인한다. JPEG 최소 간격 0.7초도 같은 맥락이다. 속도를 올리면 0.7초마다 찍히는 사진 사이의 간격이 벌어져 중복도가 떨어진다. 속도·간격·중복도는 함께 설계한다.</p>
+<p>둘째, 비전 시스템이 못 보는 표면·조도에서는 위치결정과 지형 추종이 함께 무너진다. 매뉴얼(14~15쪽)은 실패 조건을 길게 나열한다. 단색 표면, 강한 반사면, 물·투명면, 움직이는 표면·물체, 급격한 조도 변화, 극단 조도(10 lux 미만 또는 40,000 lux 초과), 적외선을 강하게 반사·흡수하는 표면(거울 등), 무늬 없는 면, 반복 동일 무늬(타일 등), 작은 면적 장애물(나뭇가지 등)이다. 하방 비전 최적 고도는 0.5~30m이다. 물 위에서는 하방 비전이 제대로 동작하지 않아 착륙 시 아래 물을 능동 회피하지 못할 수 있다. 비·연무·시정 100m 미만에서는 비행 금지이다. 지형 추종의 Real-Time Follow는 비전 시스템이 전방 200m 지형을 감지하는 방식이므로, 같은 전제를 공유한다. 맨흙·균일한 작물면·물가·유리 외벽·어두운 새벽 비행에서는 &quot;기체가 알아서 고도를 맞춘다&quot;는 전제가 깨진다. 지형 추종을 켜기 전에 그 현장의 질감·조도·경사를 먼저 보고, 비전이 안 되는 구간은 DSM 추종 또는 수동 고도 설계로 바꿔야 한다.</p>
+<p>셋째, RTK가 FIX가 아니거나, 켠 채 보정 데이터가 없으면 임무의 정확도 전제 자체가 바뀐다. 매뉴얼(46~48쪽)은 매번 사용 전 서비스 종류를 올바르게 설정해야 하고, 사용하지 않을 때는 RTK 기능을 꺼야 하며, 켠 채 보정 데이터가 없으면 이륙이 불가하다고 서술한다. 상태표의 FIX가 보정 데이터 수신·사용 중임을 뜻한다. &quot;RTK 모듈을 달았다&quot;는 사실이 정확도를 보증하지 않는다. FIX 확인이 안 된 채로 날면, 그 비행의 위치 전제는 cm급이 아니라 GNSS ±0.5m급(또는 비전 조건)으로 떨어진다. D-RTK 2 통신 거리(FCC 12km·SRRC/CE/MIC 6km)도 현장 배치(기지국 위치)의 전제이다. M3E 매뉴얼이 참조하는 기지국은 D-RTK 2이다. D-RTK 3를 M3E 공식 조합인 것처럼 쓰지 않는다.</p>
+<p>넷째, &quot;한 번 맞춘 캘리브레이션&quot;은 다음 비행에도 통하지 않을 수 있다. 보조 논문 Gonçalves 등(2025)은 DJI Mavic 3M으로 GCP 없이 RTK만으로 정사·DEM의 위치를 맞춘 연구이다. 초록 기준 핵심은 이렇다. 21회 비행 후 내부 파라미터 안정성 평가에서 초점거리 변동 범위 9픽셀·표준편차 2.2픽셀(초점거리의 0.06%), 경사 촬영 스트립을 추가해 초점거리 자기 캘리브레이션을 최적화, 비행마다 캘리브레이션을 다시 계산해야 한다는 관찰이다. 단서 필수이다. 이 대목은 3M 실험의 초록 수준 근거이며, 3E의 캘리브레이션 수치로 바꿔 쓰지 않는다. 앵커 논문의 내부 파라미터 대목(b1이 보정·속도에 따라 달라짐)과 같은 방향이다. &quot;이전 현장에서 잘 맞았던 설정값을 그대로 가져오면 안 된다&quot;는 원칙 수준으로만 쓴다. 경사 촬영을 캘리브레이션 안정화의 설계 요소로 언급하는 것도 같은 맥락이다.</p>
+<p>다섯째, 헤드라인 비행 시간(45분)으로 임무를 짜면 배터리 변형·바람·예비 시간에서 모자란다. 45분은 무풍·표준 배터리·Enterprise 프로펠러 조건이다. EU C1 배터리 변형에서는 36분이다. 최대 이륙 중량도 표준 1,050g에서 C1 변형 899g로 표기된다. C2 라벨 기체에 C1 배터리를 쓴다고 C1 적합이 되는 것도 아니다. 45분을 &quot;현장 체감 시간&quot;으로 쓰지 않는다. 변형 배터리 확인(C1인지 표준인지), 바람·온도·귀환 예비 시간을 빼고 면적을 나누는 것이 임무 설계이다. &quot;1회 비행 2km² 매핑&quot; 같은 문구는 대리점·판매 페이지에서 반복되는 문구이나, 오늘 확인한 공식 스펙 페이지 본문에서는 확인하지 못했다. 임무 면적 약속으로 쓰지 않는다. &quot;RTK 장착 시 비행 시간 42분&quot; 수치도 공식 스펙 페이지에 RTK 장착 시 비행 시간 표기가 없으므로 공식 수치로 쓰지 않는다.</p>
+<p><strong>그래서 현장에서 — 세 가지 판단 지점을 체크리스트로.</strong> 첫째, 비행 전 FIX 확인이다. 절차는 매뉴얼(46~48쪽) 그대로 밟는다. 1) 전원 OFF 상태에서 PSDK 포트 커버 제거 → RTK 모듈 장착 → 양쪽 노브 조임(장착 후 흔들림 확인). 2) 전원 ON 후 Pilot 2에서 RTK 기능 활성화 + 서비스 종류 선택(D-RTK 2 모바일 스테이션 Broadcast 모드, 또는 Custom Network RTK의 NTRIP 서버 정보 입력·저장). 3) 상태표에서 FIX 확인 후 이륙. 4) 사용하지 않을 때는 RTK 기능 OFF(켜둔 채 보정 데이터가 없으면 이륙 불가). 5) 핫스왑 금지 — 비행 중 모듈을 끼웠다 뺐다 하지 않는다. 6) 모듈을 가리지 않는다. D-RTK 2를 쓸 때는 기지국을 Broadcast 모드로 전환하고, 통신 거리 안에 기체가 있는지 현장 배치 단계에서 확인한다. FIX가 안 되면 이륙을 미루거나 정확도 전제를 낮춰 임무를 다시 짠다.</p>
+<p>둘째, 매핑 전 &quot;정사인가 3D인가&quot;에 따라 수집 모드를 고른다. 정사면 정사 수집, 건물·시설 3D면 경사 수집 또는 Smart Oblique이다. 3T 기종이면 Smart Oblique 선택지가 없다는 점을 기종 확인 단계에서 잡는다. 경사지면 지형 추종 방식을 정한다. 평탄지면 일반 고도, 경사지면 AGL + Real-Time Follow(경사 75° 미만·비전 적합 조도·환경) 또는 DSM Follow 중 조건에 맞는 쪽이다. 사진 수에 따라 비행 속도가 자동 조절된다는 점도 기억한다. 속도를 수동으로 올리면 중복도·GSD 전제가 깨질 수 있다.</p>
+<p>셋째, 이륙 전 체크리스트와 비행 후 검수이다. 이륙 전에는 매뉴얼(31쪽 부근) 순서대로 확인한다. 1) 조종기·기체 배터리 완충 + 지능형 비행 배터리 견고 장착. 2) 프로펠러 견고 장착·손상·변형 없음, 모터·프로펠러 이물질 없음, 블레이드·암 전개. 3) 비전 시스템 렌즈·카메라·적외선 센서 유리·보조등 깨끗하고 스티커·차단 없음(부드러운 천으로 청소, 알코올 함유 세정제 금지, 유리 손상 시 DJI Support 연락). 4) 전원 켜기 전 짐벌 보호대 제거. 5) microSD 슬롯·PSDK 포트 커버 제대로 닫힘. 6) 조종기 안테나 위치 조정. 7) Pilot 2·기체 펌웨어 최신 버전. 비행 후에는 사진의 왜곡·이어짐·위치(FIX 여부 로그)를 확인하고, GSD 균일성(지형 추종 적용 여부)을 점검한 뒤 후처리로 넘긴다. 펌웨어 업데이트는 Pilot 2 또는 Assistant 2(Enterprise Series)로 하며, 업데이트 전 배터리 25% 초과, 약 15분 소요, 업데이트 중 조종기 인터넷 연결 유지가 조건이다. 배터리 펌웨어는 기체 펌웨어에 포함되며 모든 배터리를 업데이트해야 한다.</p>
+<p><strong>🎯 대리점 차별화 전략 포인트.</strong> 차별화 서비스 아이디어는 &quot;작은 기체로 먼저 찍고, 큰 기체·정밀 처리는 그 다음&quot;이라는 순서 자체이다. 현장 방문 첫날 3E로 정사·3D 초안을 만들고, 그 초안 위에서 태양광 설치 전 시각화·시설 점검 범위를 함께 정한 뒤 정밀 임무를 설계하는 상담 흐름을 만들면, &#x27;기체 크기&#x27; 경쟁이 아니라 &#x27;현장 판단 속도&#x27; 경쟁이 된다. 영업 한 줄 멘트는 이것이다. &quot;큰 기체를 부르기 전에, 가방에서 꺼낸 기체로 현장 전체를 한 번 찍어봅니다. 그 사진이 정사·3D가 되면, 그 다음에 무엇을 더 정밀하게 볼지 정할 수 있습니다.&quot; 단, 정확도·면적 수치를 약속 문구로 쓰지 않는다. 정확도는 FIX·비행 설계·후처리 조건에 따라 달라진다는 단서를 함께 단다. 기술 내재화 메모는 세 가지 판단 지점이다. FIX 확인·수집 모드 선택(정사/경사/스마트 경사)·지형 추종 방식 선택을 현장 체크리스트로 내재화하면, 3E가 없어도(다른 매핑 기체로도) 같은 상담 구조를 쓸 수 있다. 이는 11월 1일 Terra 회차의 &#x27;촬영 전 설계가 정확도를 정한다&#x27;는 교훈과 같은 구조이다.</p>
+<p><strong>앞으로의 전망.</strong> 방향은 두 갈래이다. 하나는 보정 모델의 정교화이다. 앵커 논문의 저자들은 서로 다른 비행 속도·카메라·조건에서의 추가 검증 필요성을 시사했다. 롤링 셔터 효과는 비행 속도·시험장 조건·블록 형상·GCP 배치·소프트웨어·보정 모델에 따라 달라지므로, 단일 기종·제한된 조건의 결과로 일반화하지 않는다. 다른 하나는 &quot;GCP 없는 매핑&quot;의 조건을 좁히는 쪽이다. Gonçalves 등(2025)의 초록이 보여주듯, RTK 직접 지오레퍼런싱은 경사 스트립을 통한 자기 캘리브레이션 최적화와 비행마다 다시 계산하는 전제 위에서 성립한다. 다만 이 전망은 논문의 한계·향후 과제 서술에 근거한 것이지, 3E의 다음 펌웨어나 신제품이 그 기능을 갖는다는 확인이 아니다. 현장의 판단 기준은 당분간 그대로이다. 셔터·FIX·비행 설계라는 세 전제가 틀리면, 후처리에서 아무리 좋은 보정을 켜도 지도는 틀린다.</p>
+<p>작은 기체가 현장의 첫 기체가 되는 조건은 크기가 아니다. 사진 한 장의 왜곡을 줄이는 셔터, 사진마다 붙는 cm급 위치, 필요한 각도를 빠짐없이 모으는 경로 설계, 일정한 해상도를 지키는 지형 추종이다. 내일 현장에서는 한 가지만 달리하면 된다. 이륙 버튼을 누르기 전에, 상태표의 FIX 한 글자를 먼저 확인하는 것이다.</p>
+<p><strong>출처·참고문헌:</strong></p>
+<ul>
+<li>DJI Mavic 3 Enterprise 공식 스펙 페이지, 2026-11-05 라이브 재확인: 3E 무게 915g·최대 이륙 중량 1,050g·최대 비행 시간 45분(무풍·표준 배터리·Enterprise 프로펠러)·EU C1 변형 36분·최대 호버 38분/30분·최대 비행 거리 32km/24km·최대 내풍 12m/s·운용 온도 -10°~40°C·최대 이륙 고도 6,000m; 와이드 카메라 4/3 CMOS 20MP·FOV 84°·환산 24mm·f/2.8~f/11·기계식 셔터 8~1/2000초·전자식 8~1/8000초·JPEG 최소 간격 0.7초; 텔레 카메라 12MP·환산 162mm·FOV 15°·f/4.4·전자식 셔터만·디지털 줌 8배(56배 하이브리드); 호버 정확도 비전 수직 ±0.1m·수평 ±0.3m, GNSS ±0.5m, RTK ±0.1m; 전방향 쌍안 비전 + 하방 적외선 센서(전방 측정 0.5~20m·감지 0.5~200m·≤15m/s, 후방 0.5~16m·≤12m/s, 측방 0.5~25m·≤15m/s, 상방 0.2~10m·≤6m/s, 하방 0.3~18m·≤6m/s; 감지 환경 무늬 뚜렷한 표면 + 15 lux 초과, 하방 확산 반사율 20% 초과 + 15 lux 초과); O3 Enterprise 전송, 라이브 뷰 1080p/30fps, 최대 전송 거리 FCC 15km·CE 8km, 지연 약 200ms; GNSS GPS+Galileo+BeiDou+GLONASS(GLONASS는 RTK 모듈 장착 시에만 지원). <a href="https://enterprise.dji.com/mavic-3-enterprise/specs">https://enterprise.dji.com/mavic-3-enterprise/specs</a></li>
+<li>DJI Mavic 3 Enterprise 공식 다운로드 페이지, 2026-11-05 라이브 재확인: 기체 펌웨어 v17.01.05.08(2026-05-07), 조종기 펌웨어 v02.01.08.04(2026-05-07), DJI Pilot 2 앱 v17.1.5.15; 릴리즈 노트 최신 항목 &quot;Fixed some known issues&quot;; User Manual(2025-09-16), Quick Start Guide v3.0(2025-09-16), Disclaimer and Safety Guidelines v3.0(2025-09-16). <a href="https://www.dji.com/mavic-3-enterprise/downloads">https://www.dji.com/mavic-3-enterprise/downloads</a></li>
+<li>DJI Mavic 3 Enterprise User Manual v3.0 (영문, 2025-09-16, 111쪽), 아카이브 보유: 비전·적외선 센싱 시스템 실패 조건 및 이륙 전 점검(14~15쪽), APAS 5.0(29쪽 부근), 이륙 전 체크리스트(31쪽 부근), PSDK 포트·RTK 모듈 장착·설정·FIX(46~48쪽), 면 경로 Area Route·정사/경사 수집·Smart Oblique·Terrain Follow(80~82쪽 부근), 펌웨어 업데이트(97~98쪽 부근). 아카이브: ~/workspace/goals/dji/manuals/DJI_Mavic3Enterprise_User_Manual_2025-09-16_en.pdf</li>
+<li>Bruno, Nazarena; Forlani, Gianfranco (2023). Experimental Tests and Simulations on Correction Models for the Rolling Shutter Effect in UAV Photogrammetry. Remote Sensing, 15(9), 2391. DOI: <a href="https://doi.org/10.3390/rs15092391">https://doi.org/10.3390/rs15092391</a> — MDPI 오픈 액세스 원문 확인 완료(2026-11-05 준비 단계 라이브 대조, OpenAlex 기준 피인용 11회). 전이 경계: 이 논문은 DJI Air 2S(1인치 CMOS 20MP, 롤링 셔터 카메라) 실험이지 Mavic 3 Enterprise 실험이 아니다. Site A 비행 고도 55m·영상 50장·비행 속도 4m/s·GSD 1.9cm·중복도 80%/70%, Site B 고도 60m·영상 40장, 4m/s와 8m/s 비교, GCP Site A 14점·Site B 6점. 재투영 오차(픽셀) A 0.53·B 0.28·C 0.56·D 0.48·E 0.25·F 0.14. 수평 정확도 손실 대부분 45% 미만, 수직 손실이 큼, 수직 정확도는 GNSS 보조 시(특히 고속) 개선. 시뮬레이션 체크포인트 RMSE(cm, X/Y/Z) Table 8: RS 시뮬레이션 원본 1.6/1.6/2.4, 보정 없음·GCP 전용 1.3/1.3/2.5, 보정 없음·GNSS 보조 1.3/1.3/1.9, Metashape 선형·GCP 전용 0.8/0.8/2.2, Metashape 선형·GNSS 보조 0.8/0.7/1.2, Pix4Dmapper 구간 선형·GCP 전용 0.9/0.9/2.4, Pix4Dmapper 구간 선형·GNSS 보조 0.8/0.8/1.2. 블록 중앙 GCP 1점 고정 추가 시험: 수평 RMSE 4cm 초과·고도 최대 7cm. 내부 파라미터 b1이 보정·속도에 따라 달라짐. 한계: RS 효과는 비행 속도·시험장 조건·블록 형상·GCP 배치·소프트웨어·보정 모델에 따라 달라짐, 단일 기종·제한된 조건.</li>
+<li>Gonçalves, José Alberto; Meyer, Manuel de Figueiredo; Bio, Ana Maria Ferreira (2025). Precise Georeferencing of RGB and Multispectral Drone Images without Ground Control Points. ISPRS Archives, XLVIII-2-W11, 103. DOI: <a href="https://doi.org/10.5194/isprs-archives-xlviii-2-w11-2025-103-2025">https://doi.org/10.5194/isprs-archives-xlviii-2-w11-2025-103-2025</a> — 초록 수준 확인(전문 대조 미완료, OpenAlex 기준 피인용 0회). DJI Mavic 3M 실험, 21회 비행 후 초점거리 변동 범위 9픽셀·표준편차 2.2픽셀(초점거리의 0.06%), 비행마다 캘리브레이션 재계산 관찰, 경사 스트립 추가로 초점거리 자기 캘리브레이션 최적화, 경사 영상 포함 + GCP 없음으로도 수평 오차는 영상 해상도 수준·수직 오차는 그 2배 수준. 3E 수치로 바꿔 쓰지 않음.</li>
+<li>Vautherin, Jonas et al. (2016). Photogrammetric Accuracy and Modeling of Rolling Shutter Cameras. ISPRS Annals, III-3, 139-146. DOI: <a href="https://doi.org/10.5194/isprs-annals-iii-3-139-2016">https://doi.org/10.5194/isprs-annals-iii-3-139-2016</a> — 앵커 논문의 선행 근거로만 언급, 수치 인용 없음.</li>
+</ul>
+<p style="margin-top:2.5rem"><a href="../index.html">← 아카이브 목록으로 돌아가기</a></p>
+</div></main>
+<footer><div class="wrap">
+DRONE SEAL · 무인항공AI 교육센터<br>
+W. <a href="https://droneseal.kr">droneseal.kr</a> · T. 055-345-8231 · M. <a href="mailto:amen@droneseal.kr">amen@droneseal.kr</a>
+</div></footer>
+</body>
+</html>
