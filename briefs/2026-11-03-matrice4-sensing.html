@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>사방을 보는 눈이 아니라, 조건이 맞을 때만 보는 눈 — Matrice 4의 센싱이 조종사에게 판단을 돌려주는 이유 — DRONE SEAL 기술 브리핑 아카이브</title>
+<style>
+:root{--green:#2D7A4F;--green-dark:#1E5C38;--pale:#E7F4ED;--ink:#222;--muted:#5a6b60;--line:#dce8df}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,'Segoe UI','Noto Sans KR',sans-serif;color:var(--ink);line-height:1.75;background:#fff}
+header{background:var(--green);color:#fff;padding:2.2rem 1.2rem 1.6rem}
+.wrap{max-width:860px;margin:0 auto;padding:0 1.2rem}
+header h1{margin:0;font-size:1.7rem;letter-spacing:.02em}
+header p{margin:.5rem 0 0;opacity:.92}
+nav{margin-top:1rem}
+nav a{color:#fff;opacity:.9;margin-right:1.1rem;text-decoration:none;font-size:.95rem}
+nav a:hover{opacity:1;text-decoration:underline}
+main{padding:2rem 0 3rem}
+h2{color:var(--green-dark);border-bottom:2px solid var(--green);padding-bottom:.35rem;margin-top:2.4rem}
+h3{color:var(--green-dark);margin-top:1.8rem}
+a{color:var(--green-dark)}
+.meta{color:var(--muted);font-size:.9rem}
+.card{border:1px solid var(--line);border-radius:10px;padding:1rem 1.2rem;margin:.8rem 0;background:#fbfdfc}
+.card h3{margin:.1rem 0 .3rem}
+.card h3 a{text-decoration:none}
+.card h3 a:hover{text-decoration:underline}
+.card p{margin:.2rem 0}
+.badge{display:inline-block;background:var(--pale);color:var(--green-dark);border-radius:999px;padding:.05rem .6rem;font-size:.8rem;margin-right:.4rem}
+.full{font-size:.9rem}
+footer{border-top:1px solid var(--line);padding:1.6rem 0 2.4rem;color:var(--muted);font-size:.92rem}
+footer a{color:var(--green-dark)}
+blockquote{border-left:3px solid var(--green);margin:1rem 0;padding:.4rem 1rem;background:var(--pale)}
+ul{padding-left:1.3rem}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<h1>DRONE SEAL · 무인항공AI 교육센터</h1>
+<p>DJI·XAG 기술 브리핑 아카이브</p>
+<nav><a href="../index.html">← 아카이브 목록</a> <a href="../index.html#portfolio">회사 소개</a></nav>
+</div></header>
+<main><div class="wrap">
+<p class="meta">2026-11-03 · DJI 기술 브리핑</p>
+<h1>DJI 기술 일일 브리핑 — 2026-11-03 (화) 저녁 회차</h1>
+<h2>사방을 보는 눈이 아니라, 조건이 맞을 때만 보는 눈 — Matrice 4의 센싱이 조종사에게 판단을 돌려주는 이유</h2>
+<p>센싱 시스템이란 기체가 스스로 주변을 감지해 위치를 잡고 장애물을 피하는 데 쓰는 감각계이다. Matrice 4E/4T의 센싱은 전방향 비전, 하방 비전, 하방 3D 적외선, 보조등으로 이뤄진다. 그런데 이 감각계는 사방을 무조건 보는 눈이 아니다.</p>
+<p>교량 아래 하얀 콘크리트 벽 앞을 떠올려보자. 화면에는 기체가 떠 있고, 센싱도 켜져 있다. 그런데 기체는 왜 그 벽을 제대로 보지 못하는가. 답은 센싱의 원리에 있다. 비전 센싱은 눈으로 보는 것이 아니라 사진 속 무늬가 어떻게 움직이는지를 대조해 위치와 장애물을 계산한다. 무늬가 없으면 대조할 단서 자체가 사라진다. 오늘의 주장은 이것이다. Matrice 4의 센싱을 믿는 기준은 &quot;켜져 있는가&quot;가 아니라 &quot;무늬·조도·표면이라는 세 조건이 맞는가&quot;이다.</p>
+<p><strong>왜 지금인가.</strong> 센서 축은 최근 2주 브리핑에서 독립 회차로 다뤄진 적이 없다. 10월 25일 Matrice 400 회차는 센서 융합 구조였고, 10월 23일 H30T 회차는 찍는 열화상 카메라였다. 이번 회차는 그 둘과 다르다. 기체가 위치를 잡고 장애물을 피하는 감각계 자체, 그리고 그 감각계가 무너지는 조건을 다룬다.</p>
+<p>최신 기준도 확인했다. DJI Matrice 4 시리즈 공식 다운로드 페이지(2026-11-03 재확인)에서 기체 펌웨어는 Matrice 4E·4T 모두 17.02.05.01(2026-06-16), 조종기 DJI RC Plus 2 Enterprise 펌웨어는 01.64.08.20(2026-07-10)이다. 본론의 근거는 사용자 매뉴얼 v1.2(2025-04-15) 4.10~4.12절이다. 다만 2026-07-10 릴리즈 노트 본문에서 센싱 동작 변경 내용은 이번 회차에서 대조하지 않았으므로, 최신 펌웨어가 센싱을 바꿨다고 단정하지 않는다. 방향별 측정 범위나 시야각(FOV) 수치도 공식 스펙 페이지 본문으로 대조하지 못했으므로 이번 회차에서는 인용하지 않는다.</p>
+<p><strong>핵심은 이렇게 돈다.</strong> 전방향 비전 시스템이란 여러 방향의 카메라 영상을 비교해 &quot;내가 얼마나 움직였는지, 앞에 무엇이 있는지&quot;를 계산하는 장치이다. 비유하자면 벽지 무늬가 시야에서 얼마나 흘러갔는지를 보고 걸음 수를 세는 방식이다. 그래서 매뉴얼은 이 시스템이 &quot;충분한 조명과 명확히 표시되거나 질감이 있는 장애물&quot;에서 가장 잘 동작한다고 전제를 박는다.</p>
+<p>왜 비전이 필요한가. GNSS(위성 신호로 위치를 잡는 방식)만으로는 건물 사이, 교량 아래처럼 위성이 잘 안 보이는 곳에서 위치가 흔들리기 때문이다. 비전은 그 빈자리를 메우는 두 번째 위치 기준이다. 현장에서는 교량·송전 설비·건물 외벽 근접 비행, GNSS가 약한 도심·산림 가장자리에서 비전이 호버와 경로를 떠받친다. 단, 이 쓰임은 무늬가 있는 환경이라는 전제 위에서만 성립한다.</p>
+<p>하방 센싱이 두 갈래인 이유도 같은 논리이다. 하방 비전은 아래 땅의 무늬로 위치를 잡고, 3D 적외선 센싱은 적외선을 쏘아 돌아오는 정보로 지면까지의 거리를 잰다. 하나는 무늬로 위치, 다른 하나는 빛으로 거리이다. 어두워지면 비전은 무늬를 읽지 못하므로, 적외선이 거리 정보를 이어받아야 저고도 호버와 착륙 판단이 무너지지 않는다.</p>
+<p>보조등은 이 구조의 보조광일 뿐이다. 이륙 후 고도 5m 미만·저조도 환경에서 기본적으로 자동 점등되고, 수동 켜기·끄기도 되지만 재시작하면 Auto 기본값으로 돌아간다. 매뉴얼은 보조등을 켜도 저조도에서 최적 위치결정 성능에 못 미칠 수 있다고 못 박는다. 보조등을 켰다고 저조도 성능이 완전히 회복되는 것이 아니다. 하방 비전의 위치결정은 고도 0.5~30m에서 가장 잘 동작하고, 30m를 넘기면 성능 저하에 주의해야 한다.</p>
+<p><strong>그래서 현장에서 — 감각에서 판단으로, 판단에서 행동으로.</strong> 센서가 본 것은 그대로 행동이 된다. APAS(Advanced Pilot Assistance Systems, 조종사의 스틱 입력과 비행 환경을 함께 읽어 경로를 다듬는 비행 보조)는 Normal·Tripod 모드에서 Pilot 2의 장애물 회피 동작을 Avoid로 선택했을 때 활성화된다. 조종사가 스틱을 밀면 기체는 장애물을 비켜 가거나 멈춘다. 비행 일시정지 버튼을 누르면 제동 후 3초간 호버하며 다음 명령을 기다린다.</p>
+<p>여기서 설계의 핵심은 후퇴이다. 조도가 부족해 비전이 부분적으로만 사용 불가해지면 APAS는 우회를 포기하고 제동·호버로 전환한다. 잘못 비키는 것보다 멈춰서 조종사에게 판단을 돌려주는 편이 안전하기 때문이다. 전환 뒤에는 스틱을 중앙으로 되돌린 뒤 계속 조종해야 한다. 이 전환을 고장으로 읽으면 안 된다. APAS의 안전 후퇴이다.</p>
+<p>착륙 보호도 같은 문법이다. 장애물 회피 동작이 Avoid 또는 Brake이면 착륙 시 착륙 보호가 활성화된다. 지면이 적합하면 바로 내리고, 부적합하면 일정 고도에서 호버하며 멈춘다. 조종사가 스로틀 스틱을 5초 이상 아래로 밀면 장애물 회피 없이 착륙한다. 이 5초는 우회 방법이 아니라 조종사의 확정 절차이다. 자동 판단이 틀릴 수 있다는 전제를 절차에 새긴 것이다.</p>
+<p>AirSense는 또 다른 층이다. AirSense란 주변 유인기가 ADS-B(유인기가 자신의 위치·고도·속도를 스스로 전파로 방송하는 방식)로 보낸 신호를 받아 충돌 위험을 경고하는 수신 전용 장치이다. 1090ES 또는 UAT 표준 방송을 반경 10km 안에서 수신해 위치·고도·방향·속도를 분석하고, DJI 기체와 비교해 위험을 계산한다. 경고는 Notice(파란 비행기 아이콘), Caution(&quot;Manned aircraft detected nearby. Fly with caution.&quot;, 주황 아이콘과 거리 정보), Warning(&quot;Collision risk. Descend or ascend immediately.&quot;, 빨간 아이콘과 거리 정보, 조종기 진동) 순으로 올라간다.</p>
+<p>AirSense가 경고만 하는 이유는 출처의 한계가 곧 설계이기 때문이다. ADS-B를 달지 않았거나 고장 난 유인기는 애초에 안 보이고, 건물·지형에 가리면 방송이 닿지 않으며, 간섭이 있으면 경고가 늦어질 수 있다. 그래서 매뉴얼은 AirSense를 충돌 방지 장치가 아니라 경고 장치로만 둔다. 경고가 없다고 유인기가 없는 것이 아니다.</p>
+<p>연결 고리를 한 줄로 정리하면 이렇다. 앞단 입력은 전방향 비전 카메라의 무늬·질감 영상, 하방 3D 적외선의 거리 정보, GNSS 신호, ADS-B 방송, 조종사 스틱 입력, Pilot 2의 Avoid·Brake 설정값이다. 뒷단 활용은 비전 위치결정의 호버·경로 유지, APAS의 우회·제동, 착륙 보호의 멈춤, AirSense의 색깔 경고이다. 센싱의 조건이 깨지면 그 뒤의 판단들도 함께 흔들린다.</p>
+<p><strong>실패 모드 — 센싱이 무너지는 다섯 조건과 조종사의 대신할 일.</strong> 첫째, 무늬·질감이 없는 환경이다. 단색면(순수 검정·흰색·빨강·초록), 무늬 없는 면, 반복되는 동일 무늬, 강한 반사면, 물·투명면, 움직이는 면, 급격한 조도 변화, 극단 조도(0.5lux 미만 또는 40,000lux 초과), 적외선을 강하게 반사·흡수하는 면에서는 비전이 제대로 동작하지 않는다. 조종사의 일은 이륙 전 벽면·지면의 질감을 육안으로 먼저 판단하고, 하얀 외벽·눈밭·유리 커튼월·물 위에서는 센싱 표시만 믿고 근접 비행하지 않는 것이다.</p>
+<p>둘째, 가느다란 장애물과 프레임·케이블 대형 구조물이다. 매뉴얼은 타워크레인·고압 송전탑·고압 송전선·사장교·현수교 같은 구조물을 정확히 식별할 수 없다고 밝힌다. 나뭇가지·전선 같은 작은 표면적의 장애물도 동작 불량 조건이다. Vision Assist(비행 방향에 따라 해당 방향 비전 영상을 보여주는 보조 화면) 역시 유리벽·나뭇가지·전선·연줄을 정확히 표시하지 못한다. 현장의 답은 센싱이 아니라 사전 답사와 육안, 비행 경로 설계이다. &quot;없다고 보인다&quot;는 &quot;없는 것&quot;이 아니다.</p>
+<p>셋째, 저조도와 GNSS 약화의 복합 조건이다. 저조도에서는 보조등을 켜도 최적 성능에 못 미치고, GNSS까지 약하면 위치결정과 APAS가 함께 후퇴한다. 매뉴얼의 GNSS 약화 시 고도 제한 표는 조건을 세 갈래로 나눈다. 조도가 충분하면 이륙 지점 기준 60m, 조도가 부족하고 3D 적외선이 동작하면 지상 3m, 조도가 부족하고 3D 적외선도 동작하지 않으면 이륙 지점 기준 60m이다. GNSS 신호 강도가 2 이상으로 강해지면 제한은 자동 해제되고, 이후 GNSS가 약해져도 제한이 다시 적용되지 않는다. APAS의 주의 기준은 비전 동작 한계와 다르다. APAS는 300lux 미만 또는 10,000lux 초과에서 각별한 주의가 필요하다. 두 lux 기준을 섞으면 안 된다.</p>
+<p>넷째, 물·눈 위이다. 하방 비전은 물 근처에서 제대로 동작하지 않아 착륙 시 아래 물을 능동 회피하지 못할 수 있고, APAS도 물·눈 덮인 지역 위에서 제대로 동작하지 않을 수 있다. 수상·설상 착륙과 저고도 비행은 센싱 판단에 맡기지 않는다. 착륙 지점은 육안으로 재확인하고, 착륙 보호가 호버로 멈추면 5초 확정 전에 지면을 다시 본다.</p>
+<p>다섯째, AirSense의 침묵이다. ADS-B를 달지 않은 유인기, 장애물에 가려진 유인기, 간섭으로 늦어지는 경고, 자 기체 위치 정보가 없을 때, 비활성화·오설정일 때는 경고가 나오지 않는다. 저고도 헬기·소형기가 ADS-B를 달지 않았을 수 있는 현장에서는 육안·청각 경계와 공역 사전 확인이 AirSense와 별개로 필요하다.</p>
+<p>앵커 논문은 이 실패 목록을 학술의 언어로 뒷받침한다. Debnath 외(2024)는 UAV 경로계획과 장애물 회피 방법을 센서 기반, 비전 기반, 하이브리드로 나눠 정리한 리뷰이다. 비전 기반에는 단안 카메라, 스테레오 비전, 깊이 카메라, 광류(연속 영상에서 움직임의 흐름을 읽는 방식), Visual-SLAM(카메라 영상으로 위치를 추정하면서 지도를 함께 만드는 방식), SfM, 딥러닝 탐지가 포함된다. 논문은 저가시성에서 비전의 정확도와 실시간 성능이 떨어지고, 특징점이 부족한 저특징 환경에서 Visual-SLAM의 정확도와 실시간성이 저하되며, 지도 작성 중 변하는 동적 장애물을 SfM이 인식하지 못할 수 있고, 광류 기반 방법도 동적·복잡한 다중 장애물 환경에 부적합할 수 있다고 정리한다. 단안 비전은 직접적인 깊이 정보가 없어 연속 영상과 외부 처리에 의존한다는 한계도 있다. 작은·얇은 장애물의 크기 임계값이나 비전 탐지 거리 수치는 이 리뷰에서 확인되지 않았으므로, 그 수치는 논문의 것으로 단정하지 않는다. 논문의 한계도 분명하다. 시뮬레이션 중심 연구와 실제 운용 환경 검증 부족, 센서·환경 조건에 따른 성능 변동을 스스로 지적하고, 향후 과제로 이동 장애물 처리와 실시간 임무 최적화, 센서 융합·하이브리드 접근을 제시한다. 리뷰라는 형식이 주는 교훈은 이것이다. 방법들의 비교·한계 정리에는 적합하지만, 특정 기체의 성능 수치를 보증하지는 않는다.</p>
+<p>회피가 임무를 바꾸는 지점도 논문과 매뉴얼이 함께 가리킨다. 장애물을 만나 경로를 바꾸면 안전은 얻지만 경로가 길어지고 비행시간·에너지·촬영 겹침이 달라진다. 근접 검사 비행에서 APAS가 우회하거나 멈추는 순간, 촬영 경로와 데이터 빈틈도 함께 바뀐다. 회피는 공짜가 아니다. 대리점 관점의 차별화는 여기에 있다. 센싱 한계를 먼저 설명하고, 그 조건에서 조종사가 무엇을 대신할지를 알려주는 쪽이 현장에서 더 오래 믿음을 얻는다.</p>
+<p><strong>그래서 현장에서 — 내일 당장 바꿀 것.</strong> 이륙 전 센싱 체크리스트를 순서대로 밟는다. 1) 센싱 유리 위 스티커·장애물이 없는지 확인한다. 2) 먼지·물·오염은 부드러운 천으로 닦고, 알코올 함유 세정제는 쓰지 않는다. 3) 렌즈 손상이 보이면 DJI Support에 연락하고 비행하지 않는다. 4) 장시간 보관 뒤 Pilot 2에 뜨는 비전 카메라 캘리브레이션 안내를 따르고, 캘리브레이션은 자동으로 수행된다. 5) 센서를 가리는 부착물이 없는지 확인한다. 여기에 비행 금지 조건을 덧붙인다. 비·연무·시정 100m 미만에서는 비행하지 않는다.</p>
+<p>설정값도 함께 확인한다. 전방향 비전은 Normal 또는 Tripod 모드에서 Pilot 2의 장애물 회피 동작이 Avoid 또는 Brake일 때 자동 활성화된다. APAS는 Normal·Tripod 모드에서만 쓸 수 있고, Pilot 2에서 장애물 회피를 Avoid로 선택해 켠다. 비전 위치결정·장애물 회피를 끄면 GNSS만으로 호버하고 전방향 회피가 없어지며, 지상 근접 하강 시 자동 감속도 없어진다. 이 해제는 수동 비행에만 적용되고 RTH·자동 착륙 같은 자동 모드에는 적용되지 않는다.</p>
+<p><strong>앞으로의 전망.</strong> 비전 단독의 한계가 분명해질수록, 센싱의 방향은 하나의 감각을 키우는 쪽이 아니라 서로 다른 약점을 가진 감각을 겹치는 쪽으로 간다. Debnath 외(2024)가 향후 과제로 든 센서 융합과 하이브리드 접근, 이동 장애물 처리가 그 방향과 겹친다. 다만 이 전망은 학술 리뷰의 방향 제시에 근거한 것이지, Matrice 4E/4T의 다음 펌웨어나 신제품이 그 기능을 갖는다는 확인이 아니다. 현장의 판단 기준은 당분간 그대로이다. 센싱이 좋아져도, 조건이 깨지는 자리에서는 조종사의 눈이 마지막 센서이다.</p>
+<p>센싱은 기체를 똑똑하게 만드는 장치가 아니라, 조종사가 어디까지 믿고 어디부터 직접 봐야 하는지를 가르쳐주는 장치이다. 내일 현장에서는 이륙 전 한 가지만 달리하면 된다. 센싱 표시등이 아니라 벽면의 무늬, 하늘의 조도, 아래 땅의 표면을 먼저 보고, 그 세 조건이 맞을 때만 센싱에 판단을 맡기는 것이다.</p>
+<p><strong>출처·참고문헌:</strong></p>
+<ul>
+<li>DJI Matrice 4 Series User Manual v1.2 (2025-04-15), 4.10 Sensing System(45~47쪽), 4.11 APAS·Landing Protection(48~49쪽), 4.12 DJI AirSense(49~50쪽), 비행 제한 표(17쪽). 아카이브: ~/workspace/goals/dji/manuals/DJI_Matrice4_User_Manual_v1.2_en.pdf</li>
+<li>DJI Matrice 4 Series 공식 다운로드 페이지, 2026-11-03 재확인: 기체 펌웨어 17.02.05.01(2026-06-16), RC Plus 2 Enterprise 펌웨어 01.64.08.20(2026-07-10), 릴리즈 노트(2026-07-10), 매뉴얼 v1.2(2025-04-15). <a href="https://enterprise.dji.com/matrice-4-series/downloads">https://enterprise.dji.com/matrice-4-series/downloads</a></li>
+<li>Debnath, D., Vanegas, F., Sandino, J., Hawary, A. F., et al. (2024). A Review of UAV Path-Planning Algorithms and Obstacle Avoidance Methods for Remote Sensing Applications. Remote Sensing, 16(21), 4019. DOI: <a href="https://doi.org/10.3390/rs16214019">https://doi.org/10.3390/rs16214019</a> — 원문(MDPI 오픈액세스 페이지) 확인 완료. 리뷰 논문이며, 작은·얇은 장애물 임계값·비전 탐지 거리·커버리지 손실 정량값은 해당 논문에서 확인되지 않아 인용하지 않았다.</li>
+</ul>
+<p style="margin-top:2.5rem"><a href="../index.html">← 아카이브 목록으로 돌아가기</a></p>
+</div></main>
+<footer><div class="wrap">
+DRONE SEAL · 무인항공AI 교육센터<br>
+W. <a href="https://droneseal.kr">droneseal.kr</a> · T. 055-345-8231 · M. <a href="mailto:amen@droneseal.kr">amen@droneseal.kr</a>
+</div></footer>
+</body>
+</html>
